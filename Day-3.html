@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+  .emphasis-1 {
+    color: red;
+  }
+  </style>
+</head>
+<body >
+  <div class="container">
+    <ul class="emphasis ">
+      <li>Hello 1</li>
+      <li>Hello 2</li>
+      <li>
+        <div class="container">
+          <ul class="emphasis-1 container">
+            <li>Nested Hello!!</li>
+          </ul>
+        </div>
+      </li>
+      <li>Hello 3</li>
+    </ul>
+  </div>
+  <script src="jQuery/jquery-1.11.3.js"></script>
+  <script>
+    //$('.emphasis').children('li').eq(0).text('Added from jQuery').css('color','green');
+//    $('ul.emphasis-1').closest('.container').removeClass('container');
+      console.log($('ul').parents('.container'));
+      console.log($('ul').closest('.container'));
+  </script>
+</body>
+</html>
