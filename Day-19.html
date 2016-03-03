@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q&amp;A</title>
+  <style>
+    .tweets span {
+      color : grey;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <ul class="tweets">
+    <script id="template" type="text/x-handlebars-template">
+      {{#each this}}
+      <li>
+        <h2> {{fullName author}} {{#if age}}<span> - {{age}}</span>{{/if}}</h2>
+        <p> {{{tweet}}} </p>
+        {{#if quote}}
+          <p>{{quote}}</p>
+        {{else}}
+          <p>This author dosn`t have any quote</p>
+        {{/if}}
+      </li>
+      {{/each}}
+    </script>
+  </ul>
+  <script src="jQuery/jquery-1.11.3.js"></script>
+  <script src="jQuery/handlebars-1.0.0.beta.6.js"></script>
+  <script>
+    (function(){
+      var data=[
+        {
+          author:{fName:'Ashish', lName:'Gupta'},
+          tweet:"This is an awesome page",
+          age : 23
+        },
+        {
+          author:{fName:'Ashutosh', lName:'Sharma'},
+          tweet:"<strong>jQuery videos</strong> are awesome",
+          quote: "never, ever ever ever do this"
+        }
+      ];
+
+      Handlebars.registerHelper('fullName', function(author){
+        return author.fName + ' ' + author.lName;
+      });
+
+      var template=Handlebars.compile($('#template').html());
+      var temp=template(data);
+      $('ul.tweets').append( template(data));
+    })();
+  </script>
+</body>
+</html>

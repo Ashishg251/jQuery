@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    .contain p{
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click Here</h1>
+  <div class="contain">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <script src="jQuery/jquery-1.11.3.js"></script>
+  <script>
+    (function(){
+      var content=$('div.contain').hide();
+
+      jQuery.fn.flash = function( speed, easing, callback ) {
+        var $this=$(this);
+    		return $this.slideDown(500,function(){
+          $this.delay(1000).slideUp(500);
+        });
+      };
+
+      $('h1').on('click',function(){
+        content.flash();
+      });
+    })();
+  </script>
+</body>
+</html>

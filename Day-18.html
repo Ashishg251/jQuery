@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q&amp;A</title>
+</head>
+<body>
+  <script id="blogSpot" type='tuts/template'>
+    <h2> {{title}} </h2>
+    <img src={{thumbnail}} alt={{title}} />
+  </script>
+  <script src="jQuery/jquery-1.11.3.js"></script>
+  <script>
+  (function(){
+    var content=[
+      {
+        'title':'My first image',
+        'thumbnail':'https://thumbsplus.tutsplus.com/uploads/users/164/posts/24661/preview_image/Titan-Framework.jpg?height=300&width=300'
+      },
+      {
+        'title':'My second image',
+        'thumbnail':'https://thumbsplus.tutsplus.com/uploads/users/41/posts/25461/preview_image/preview-image@2x.jpg?height=300&width=300'
+      },
+      {
+        'title':'My second image',
+        'thumbnail':'https://thumbsplus.tutsplus.com/uploads/users/41/posts/25461/preview_image/preview-image@2x.jpg?height=300&width=300'
+      },
+      {
+        'title':'My second image',
+        'thumbnail':'https://thumbsplus.tutsplus.com/uploads/users/41/posts/25461/preview_image/preview-image@2x.jpg?height=300&width=300'
+      }
+    ];
+    var template=$('#blogSpot').html();
+    var frag="";
+    $.each(content,function(index,obj){
+      frag+=template.replace(/{{title}}/ig,obj.title)
+                       .replace(/{{thumbnail}}/ig,obj.thumbnail);
+    });
+    $('body').append(frag);
+  })();
+  </script>
+</body>
+</html>
